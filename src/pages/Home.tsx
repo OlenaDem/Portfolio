@@ -4,7 +4,7 @@ import giraffe from "../assets/giraffe.png";
 import { useState } from "react";
 import ContactMe from "../components/Contactme";
 import profile from "../assets/photo.jpeg";
-import projects from "../assets/projects.png";
+import projects from "../assets/lamp.png";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);

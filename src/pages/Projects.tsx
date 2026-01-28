@@ -9,14 +9,17 @@ export default function Projects() {
     {
       title: "Project Surf School",
       path: "/projects/surfschool",
+      stacks: ["JS", "React", "CSS", "Vite"],
     },
     {
       title: "Project Dancing Apparel",
       path: "/projects/dancing-apparel",
+      stacks: ["React", "Tailwind CSS", "Node.js"],
     },
     {
-      title: "Project Bird-care",
+      title: "Project Bird Care",
       path: "/projects/bird-care",
+      stacks: ["React", "Tailwind CSS", "Node.js"],
     },
   ];
 
@@ -103,8 +106,8 @@ export default function Projects() {
             >
               <h3 className="text-xl font-semibold">{proj.title}</h3>
               <p className="text-white/60 mt-2 text-sm">
-                Description of {proj.title}. Technologies used: Vite, React, JS,
-                HTML, CSS, REST API.
+                Description of {proj.title}. Technologies used:{" "}
+                {proj.stacks.join(", ")}
               </p>
             </div>
           ))}
