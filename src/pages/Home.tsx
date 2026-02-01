@@ -13,9 +13,12 @@ export default function Home() {
     <section className="relative min-h-screen overflow-hidden bg-linear-to-br from-[#2b1055] via-[#1b1f5c] to-[#090d2b] text-white scale-95 md:scale-100 origin-top">
       {/* HERO TEXT */}
       <div className="relative z-10 max-w-4xl px-6 pt-20 md:px-16 md:pt-28">
-        <span className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60">
+        <NavLink
+          to="/"
+          className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 hover:text-white transition cursor-pointer"
+        >
           Front-End Developer
-        </span>
+        </NavLink>
 
         <h1 className="mt-6 text-4xl md:text-6xl font-extrabold leading-tight">
           Welcome to <br />

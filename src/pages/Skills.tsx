@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 type SkillGroup = {
   title: string;
@@ -41,6 +41,12 @@ const Skills = () => {
   return (
     <section className="min-h-screen bg-linear-to-br from-[#2b1055] via-[#1b1f5c] to-[#090d2b] text-slate-100 px-6 py-16">
       <div className="max-w-6xl mx-auto">
+        <NavLink
+          to="/"
+          className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 hover:text-white transition cursor-pointer"
+        >
+          Front-End Developer
+        </NavLink>
         <h1 className="mt-6 text-4xl md:text-6xl font-extrabold leading-tight bg-linear-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent text-center">
           Skills
         </h1>

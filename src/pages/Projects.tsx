@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Projects() {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const navigate = useNavigate();
 
   const projects = [
@@ -24,8 +24,8 @@ export default function Projects() {
   ];
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    // ✅ Safe assertion (runs after mount)
+    const canvas = canvasRef.current as HTMLCanvasElement;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -33,12 +33,13 @@ export default function Projects() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
+
     setCanvasSize();
 
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#+-$&§%<>";
     const fontSize = 16;
     let columns = Math.floor(canvas.width / fontSize);
-    let drops = Array(columns).fill(0);
+    let drops: number[] = Array(columns).fill(0);
 
     const draw = () => {
       const gradient = ctx.createLinearGradient(
@@ -47,6 +48,7 @@ export default function Projects() {
         canvas.width,
         canvas.height,
       );
+
       gradient.addColorStop(0, "rgba(43,16,85,0.05)");
       gradient.addColorStop(0.5, "rgba(27,31,92,0.05)");
       gradient.addColorStop(1, "rgba(9,13,43,0.05)");
@@ -68,7 +70,7 @@ export default function Projects() {
       }
     };
 
-    const interval = setInterval(draw, 50);
+    const interval = window.setInterval(draw, 50);
 
     const handleResize = () => {
       setCanvasSize();
@@ -79,16 +81,27 @@ export default function Projects() {
     window.addEventListener("resize", handleResize);
 
     return () => {
-      clearInterval(interval);
+      window.clearInterval(interval);
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
+      {/* Canvas background */}
       <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full" />
 
+      {/* Content */}
       <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-white z-10 px-6">
+        <div className="w-full text-left mb-4">
+          <NavLink
+            to="/"
+            className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 hover:text-white transition cursor-pointer"
+          >
+            Front-End Developer
+          </NavLink>
+        </div>
+
         <h1 className="mt-6 text-4xl md:text-6xl font-extrabold leading-tight bg-linear-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent text-center">
           My Projects
         </h1>
@@ -98,10 +111,10 @@ export default function Projects() {
             <div
               key={i}
               onClick={() => navigate(proj.path)}
-              className="p-6 cursor-pointer bg-white/10 border border-white/20 rounded-2xl 
-                         backdrop-blur-md bg-linear-to-br from-indigo-500/10 to-cyan-500/10 
-                         shadow-[0_0_35px_rgba(99,102,241,0.45)] 
-                         hover:shadow-[0_0_50px_rgba(34,211,238,0.8)] 
+              className="p-6 cursor-pointer bg-white/10 border border-white/20 rounded-2xl
+                         backdrop-blur-md bg-linear-to-br from-indigo-500/10 to-cyan-500/10
+                         shadow-[0_0_35px_rgba(99,102,241,0.45)]
+                         hover:shadow-[0_0_50px_rgba(34,211,238,0.8)]
                          hover:scale-105 transition duration-300"
             >
               <h3 className="text-xl font-semibold">{proj.title}</h3>
@@ -115,9 +128,9 @@ export default function Projects() {
 
         <button
           onClick={() => navigate(-1)}
-          className="rounded-full bg-linear-to-r from-indigo-500 to-cyan-400 
-                     px-6 py-2 font-semibold 
-                     shadow-[0_0_20px_rgba(56,189,248,0.8)] 
+          className="rounded-full bg-linear-to-r from-indigo-500 to-cyan-400
+                     px-6 py-2 font-semibold
+                     shadow-[0_0_20px_rgba(56,189,248,0.8)]
                      hover:scale-105 transition mt-20"
         >
           ← Back

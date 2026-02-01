@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function DancingApparel() {
   const navigate = useNavigate();
 
   const screenshots = [
-    "/screenshots/birdcare_1.png",
-    "/screenshots/birdcare_2.png",
-    "/screenshots/birdcare_3.png",
+    "/screenshots/DancingApparel_1.png",
+    "/screenshots/DancingApparel_2.png",
+    "/screenshots/DancingApparel_3.png",
+    "/screenshots/DancingApparel_5.png",
   ];
 
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
@@ -16,6 +17,14 @@ export default function DancingApparel() {
     <section className="min-h-screen bg-linear-to-br from-[#2b1055] via-[#1b1f5c] to-[#090d2b] text-white px-6 py-20 flex justify-center">
       <div className="max-w-6xl w-full flex flex-col items-center text-center">
         {/* Title */}
+        <div className="w-full text-left mb-4">
+          <NavLink
+            to="/"
+            className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 hover:text-white transition cursor-pointer"
+          >
+            Front-End Developer
+          </NavLink>
+        </div>
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Dancing<span className="text-cyan-400">Apparel</span>
         </h1>
@@ -59,7 +68,6 @@ export default function DancingApparel() {
           </div>
         </div>
 
-        {/* Screenshots (BIGGER like SurfSchool) */}
         <h2 className="text-3xl font-semibold mt-20 mb-10">
           Project <span className="text-indigo-400">Screenshots</span>
         </h2>
@@ -86,11 +94,21 @@ export default function DancingApparel() {
             className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
             onClick={() => setSelectedImg(null)}
           >
-            <img
-              src={selectedImg}
-              onClick={(e) => e.stopPropagation()}
-              className="max-w-[95%] max-h-[95%] rounded-2xl shadow-2xl"
-            />
+            <div className="relative">
+              {/* Close button */}
+              <button
+                onClick={() => setSelectedImg(null)}
+                className="absolute top-2 right-2 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 transition z-50"
+              >
+                ✕
+              </button>
+
+              <img
+                src={selectedImg}
+                onClick={(e) => e.stopPropagation()} // prevent closing when clicking image
+                className="max-w-[95vw] max-h-[95vh] rounded-2xl shadow-2xl"
+              />
+            </div>
           </div>
         )}
 
