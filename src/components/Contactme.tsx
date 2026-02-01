@@ -1,14 +1,23 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
-export default function ContactMe({ isOpen, setIsOpen }) {
-  const formRef = useRef(null);
-  const [isSending, setIsSending] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(null);
+type ContactMeProps = {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-  const sendEmail = async (e) => {
+export default function ContactMe({ isOpen, setIsOpen }: ContactMeProps) {
+  const formRef = useRef<HTMLFormElement | null>(null);
+
+  const [isSending, setIsSending] = useState<boolean>(false);
+  const [success, setSuccess] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!formRef.current) return;
+
     setIsSending(true);
     setSuccess(false);
     setError(null);
@@ -23,32 +32,30 @@ export default function ContactMe({ isOpen, setIsOpen }) {
 
       setSuccess(true);
       formRef.current.reset();
-    } catch (err) {
+    } catch (err: unknown) {
       const message =
-        err?.text ||
-        err?.message ||
-        "Something went wrong. Please try again later.";
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again later.";
       setError(message);
     } finally {
       setIsSending(false);
     }
   };
 
-  // ✅ If modal is closed, render nothing
   if (!isOpen) return null;
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-linear-to-br from-indigo-500/10 to-cyan-500/10 border border-white/20 shadow-[0_0_25px_rgba(99,102,241,0.5)] hover:shadow-[0_0_50px_rgba(34,211,238,0.8)] transition duration-300 backdrop-blur-sm"
-      onClick={() => setIsOpen(false)} // ✅ click outside closes modal
+      className="fixed inset-0 z-50 flex items-center justify-center bg-linear-to-br from-indigo-500/10 to-cyan-500/10 backdrop-blur-sm"
+      onClick={() => setIsOpen(false)}
     >
       <div
-        className="relative w-full max-w-md rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-[0_0_40px_rgba(56,189,248,0.6)]"
-        onClick={(e) => e.stopPropagation()} // ✅ prevent closing when clicking inside
+        className="relative w-full max-w-md rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6"
+        onClick={(e) => e.stopPropagation()}
       >
-        {/* Close button */}
         <button
-          onClick={() => setIsOpen(false)} // ✅ close modal
+          onClick={() => setIsOpen(false)}
           className="absolute right-4 top-4 text-white/60 hover:text-white"
         >
           ✕
