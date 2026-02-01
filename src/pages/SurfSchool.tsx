@@ -8,7 +8,7 @@ export default function SurfSchool() {
     "/screenshots/SurfSchool_3.png",
     "/screenshots/SurfSchool_5.png",
     "/screenshots/SurfSchool_1.png",
-    "/screenshots/SurfSchool2.png",
+    "/screenshots/SurfSchool_2.png",
     "/screenshots/SurfSchool_6.png",
   ];
 
