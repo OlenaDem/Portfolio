@@ -28,7 +28,7 @@ export default function DancingApparel() {
           Dancing<span className="text-cyan-400">Apparel</span>
         </h1>
 
-        <div className="mt-6 flex flex-col items-center gap-4">
+        <div className="mt-6 flex flex-col items-center gap-4 ">
           <span className="text-7xl md:text-9xl animate-pulse">🏗️</span>
 
           <p className="max-w-3xl text-white/70 text-lg">
@@ -38,17 +38,7 @@ export default function DancingApparel() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 w-full">
-          <div className="rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-[0_0_20px_rgba(99,102,241,0.5)]">
-            <h3 className="text-xl font-semibold mb-2">⚙️ Planned Features</h3>
-            <ul className="text-white/70 text-sm list-disc list-inside text-left">
-              <li>Bird species database</li>
-              <li>Care guides & tips</li>
-              <li>Interactive bird gallery</li>
-              <li>Search & filters</li>
-            </ul>
-          </div>
-
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 w-full">
           <div className="rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-[0_0_20px_rgba(99,102,241,0.5)]">
             <h3 className="text-xl font-semibold mb-2">🛠 Tech Stack</h3>
             <div className="flex flex-wrap justify-center gap-2">
@@ -64,7 +54,7 @@ export default function DancingApparel() {
               )}
             </div>
           </div>
-        </div>
+        </div> */}
 
         <h2 className="text-3xl font-semibold mt-20 mb-10">
           Project <span className="text-indigo-400">Screenshots</span>

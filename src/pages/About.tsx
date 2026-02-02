@@ -51,7 +51,7 @@ export default function AboutMe() {
         <img
           src="/photo.jpeg"
           alt="Profile"
-          className="w-28 h-28 md:w-32 md:h-32 object-cover rounded-full border-4 border-white/30 shadow-[0_0_25px_rgba(99,102,241,0.5)] hover:shadow-[0_0_50px_rgba(34,211,238,0.8)] transition duration-300"
+          className="w-28 h-28 md:w-32 md:h-32 object-cover rounded-full border-4 border-white/30 shadow-[0_0_25px_rgba(99,102,241,0.5)] hover:shadow-[0_0_50px_rgba(34,211,238,0.8)]"
         />
       </div>
 
