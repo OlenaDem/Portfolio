@@ -38,11 +38,20 @@ export default function AboutMe() {
 
   return (
     <section className="min-h-screen bg-linear-to-br from-[#2b1055] via-[#1b1f5c] to-[#090d2b] text-white px-6 md:px-16 py-20 flex flex-col items-center">
+      <div className="w-full text-left mb-4">
+        <NavLink
+          to="/"
+          className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 hover:text-white transition cursor-pointer"
+        >
+          Front-End Developer
+        </NavLink>
+      </div>
+
       <div className="mb-8">
         <img
           src="/photo.jpeg"
           alt="Profile"
-          className="w-28 h-28 md:w-32 md:h-32 object-cover rounded-full border-4 border-white/30 shadow-[0_0_25px_rgba(99,102,241,0.5)] hover:shadow-[0_0_50px_rgba(34,211,238,0.8)] "
+          className="w-28 h-28 md:w-32 md:h-32 object-cover rounded-full border-4 border-white/30 shadow-[0_0_25px_rgba(99,102,241,0.5)] hover:shadow-[0_0_50px_rgba(34,211,238,0.8)] transition duration-300"
         />
       </div>
 
