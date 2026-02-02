@@ -24,7 +24,6 @@ export default function Projects() {
   ];
 
   useEffect(() => {
-    // ✅ Safe assertion (runs after mount)
     const canvas = canvasRef.current as HTMLCanvasElement;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -93,7 +92,7 @@ export default function Projects() {
 
       {/* Content */}
       <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-white z-10 px-6">
-        <div className="w-full text-left mb-4">
+        <div className="absolute top-6 left-1/2 transform -translate-x-1/2 w-full max-w-6xl px-6 z-10">
           <NavLink
             to="/"
             className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 hover:text-white transition cursor-pointer"

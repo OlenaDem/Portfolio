@@ -16,7 +16,6 @@ export default function DancingApparel() {
   return (
     <section className="min-h-screen bg-linear-to-br from-[#2b1055] via-[#1b1f5c] to-[#090d2b] text-white px-6 py-20 flex justify-center">
       <div className="max-w-6xl w-full flex flex-col items-center text-center">
-        {/* Title */}
         <div className="w-full text-left mb-4">
           <NavLink
             to="/"
@@ -39,7 +38,6 @@ export default function DancingApparel() {
           </p>
         </div>
 
-        {/* Info Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 w-full">
           <div className="rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-[0_0_20px_rgba(99,102,241,0.5)]">
             <h3 className="text-xl font-semibold mb-2">⚙️ Planned Features</h3>

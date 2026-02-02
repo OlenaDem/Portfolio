@@ -43,7 +43,7 @@ const Skills = () => {
       <div className="max-w-6xl mx-auto">
         <NavLink
           to="/"
-          className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 hover:text-white transition cursor-pointer"
+          className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 hover:text-white hover:underline transition cursor-pointer"
         >
           Front-End Developer
         </NavLink>

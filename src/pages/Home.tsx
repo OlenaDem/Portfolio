@@ -11,7 +11,6 @@ export default function Home() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-linear-to-br from-[#2b1055] via-[#1b1f5c] to-[#090d2b] text-white scale-95 md:scale-100 origin-top">
-      {/* HERO TEXT */}
       <div className="relative z-10 max-w-4xl px-6 pt-20 md:px-16 md:pt-28">
         <NavLink
           to="/"
@@ -27,7 +26,6 @@ export default function Home() {
           </span>
         </h1>
 
-        {/* Glass Card */}
         <div className="mt-8 mx-auto w-full max-w-xl md:max-w-2xl rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-6 md:px-12 md:py-8 text-left shadow-[0_0_35px_rgba(99,102,241,0.45)]">
           <h3 className="text-lg md:text-xl font-semibold">
             Frontend-focused developer building modern UIs, with a growing
@@ -46,7 +44,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* GEARS */}
       <img
         src={gears}
         alt="gears"
@@ -56,11 +53,10 @@ export default function Home() {
           w-65
           sm:top-25 sm:w-125 md:right-15 md:w-142.5
           animate-spinSlow
-          drop-shadow-[0_0_50px_rgba(99,102,241,0.8)]
-          transition-all duration-300"
+          drop-shadow-[0_0_50px_rgba(99,102,241,0.8)] animate-pulse
+          "
       />
 
-      {/* GIRAFFE */}
       <img
         src={giraffe}
         alt="giraffe"
@@ -77,14 +73,11 @@ export default function Home() {
           sm:h-142.5
           sm:opacity-100
           drop-shadow-[0_0_50px_rgba(99,102,241,0.8)]
-          transition-all duration-300
         "
       />
 
-      {/* BOTTOM CARDS */}
       <div className="relative z-10 mt-10 mb-32 px-6 md:px-16">
         <div className="grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
-          {/* ABOUT */}
           <NavLink to="/about" className="group">
             <div className="relative text-center p-6 md:p-8 rounded-2xl bg-linear-to-br from-indigo-500/10 to-cyan-500/10 border border-white/20 shadow-[0_0_25px_rgba(99,102,241,0.5)] hover:shadow-[0_0_50px_rgba(34,211,238,0.8)] transition duration-300">
               <img
@@ -97,7 +90,6 @@ export default function Home() {
             </div>
           </NavLink>
 
-          {/* SKILLS */}
           <NavLink to="/skills" className="group">
             <div className="relative text-center p-6 md:p-8 rounded-2xl bg-linear-to-br from-indigo-500/10 to-cyan-500/10 border border-white/20 shadow-[0_0_25px_rgba(99,102,241,0.5)] hover:shadow-[0_0_50px_rgba(34,211,238,0.8)] transition duration-300">
               <div className="mb-6 flex flex-wrap justify-center gap-3">
@@ -117,7 +109,6 @@ export default function Home() {
             </div>
           </NavLink>
 
-          {/* PROJECTS */}
           <NavLink to="/projects" className="group">
             <div className="relative text-center p-6 md:p-8 rounded-2xl bg-linear-to-br from-indigo-500/10 to-cyan-500/10 border border-white/20 shadow-[0_0_25px_rgba(99,102,241,0.5)] hover:shadow-[0_0_50px_rgba(34,211,238,0.8)] transition duration-300">
               <img
@@ -132,7 +123,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ContactMe Modal */}
       <ContactMe isOpen={isOpen} setIsOpen={setIsOpen} />
     </section>
   );
