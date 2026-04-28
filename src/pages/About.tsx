@@ -43,7 +43,7 @@ export default function AboutMe() {
           to="/"
           className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 hover:text-white transition cursor-pointer"
         >
-          Front-End Developer
+          Web and Software Developer
         </NavLink>
       </div>
 
@@ -61,17 +61,21 @@ export default function AboutMe() {
           Aljona
         </span>
       </h1>
-      <p className="text-white/60 text-center mb-6">Front-End Developer</p>
+      <p className="text-white/60 text-center mb-6">
+        Web and Software Developer
+      </p>
 
       <div className="max-w-2xl text-center space-y-4 mb-8">
         <p className="text-white/80">
-          I recently completed my studies in web development and am passionate
-          about building modern, responsive, and interactive web applications.
+          I build clean, and visually strong web applications.
         </p>
         <p className="text-white/60">
-          I have hands-on experience with React, JavaScript, HTML, and CSS
-          through personal projects and coursework. I'm eager to learn and grow
-          as a developer.
+          Skilled in React, Next.js, TypeScript, Tailwind CSS, Node.js, and
+          PostgreSQL. I bring creativity to every project — caring about how it
+          works and how it looks. I work efficiently using modern AI tools like
+          Claude Code to research, debug, and ship faster without sacrificing
+          quality. Detail-oriented, self-driven, and ready to contribute from
+          day one.
         </p>
       </div>
 

@@ -7,17 +7,26 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "Project AutoService",
+      description: "Full-stack car service platform with customer booking wizard and a secure admin panel for managing appointments, mechanics, and services.",
+      path: "/projects/autoservice",
+      stacks: ["TypeScript", "React", "Next.js", "Express.js", "PostgreSQL"],
+    },
+    {
       title: "Project Surf School",
+      description: "A responsive surf school landing page with modern UI, smooth animations, and interactive components.",
       path: "/projects/surfschool",
       stacks: ["JS", "React", "CSS", "Vite"],
     },
     {
       title: "Project Dancing Apparel",
+      description: "An e-commerce frontend for dancewear with product listings and a clean, modern design.",
       path: "/projects/dancing-apparel",
       stacks: ["React", "Tailwind CSS", "Node.js"],
     },
     {
       title: "Project Bird Care",
+      description: "A bird care guide app featuring a species database, care tips, and an interactive gallery.",
       path: "/projects/bird-care",
       stacks: ["React", "Tailwind CSS", "Node.js"],
     },
@@ -97,7 +106,7 @@ export default function Projects() {
             to="/"
             className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 hover:text-white transition cursor-pointer"
           >
-            Front-End Developer
+            Web and Software Developer
           </NavLink>
         </div>
 
@@ -105,7 +114,7 @@ export default function Projects() {
           My Projects
         </h1>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl w-full">
           {projects.map((proj, i) => (
             <div
               key={i}
@@ -118,8 +127,10 @@ export default function Projects() {
             >
               <h3 className="text-xl font-semibold">{proj.title}</h3>
               <p className="text-white/60 mt-2 text-sm">
-                Description of {proj.title}. Technologies used:{" "}
-                {proj.stacks.join(", ")}
+                {proj.description}
+              </p>
+              <p className="text-white/40 mt-2 text-xs">
+                {proj.stacks.join(" · ")}
               </p>
             </div>
           ))}

@@ -16,7 +16,7 @@ export default function Home() {
           to="/"
           className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 hover:text-white transition cursor-pointer"
         >
-          Front-End Developer
+          Web and Software Developer
         </NavLink>
 
         <h1 className="mt-6 text-4xl md:text-6xl font-extrabold leading-tight">
@@ -28,11 +28,11 @@ export default function Home() {
 
         <div className="mt-8 mx-auto w-full max-w-xl md:max-w-2xl rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-6 md:px-12 md:py-8 text-left shadow-[0_0_35px_rgba(99,102,241,0.45)]">
           <h3 className="text-lg md:text-xl font-semibold">
-            Frontend-focused developer building modern UIs, with a growing
-            interest and hands-on experience in backend technologies.
+            Web & Software Developer build full-stack web applications and SaaS
+            products with React, Next.js, TypeScript, and Node.js.
           </h3>
           <p className="mt-1 text-sm md:text-base text-white/70">
-            Building responsive and interactive web applications
+            Modern tools, clean code, creative mind
           </p>
 
           <button

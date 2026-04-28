@@ -6,6 +6,7 @@ import Projects from "./pages/Projects";
 import SurfSchool from "./pages/SurfSchool";
 import DancingApparel from "./pages/DancingApparel";
 import BirdCare from "./pages/BirdCare";
+import AutoService from "./pages/AutoService";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/projects/surfschool" element={<SurfSchool />} />
         <Route path="/projects/dancing-apparel" element={<DancingApparel />} />
         <Route path="/projects/bird-care" element={<BirdCare />} />
+        <Route path="/projects/autoservice" element={<AutoService />} />
       </Routes>
     </div>
   );

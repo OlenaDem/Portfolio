@@ -22,7 +22,7 @@ export default function SurfSchool() {
             to="/"
             className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 hover:text-white transition cursor-pointer"
           >
-            Front-End Developer
+            Web and Software Developer
           </NavLink>
         </div>
         {/* Title */}
@@ -89,7 +89,6 @@ export default function SurfSchool() {
             onClick={() => setSelectedImg(null)}
           >
             <div className="relative">
-              {/* Close button */}
               <button
                 onClick={() => setSelectedImg(null)}
                 className="absolute top-2 right-2 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 transition z-50"
@@ -99,7 +98,8 @@ export default function SurfSchool() {
 
               <img
                 src={selectedImg}
-                onClick={(e) => e.stopPropagation()} // prevent closing when clicking image
+                alt="SurfSchool screenshot enlarged"
+                onClick={(e) => e.stopPropagation()}
                 className="max-w-[95vw] max-h-[95vh] rounded-2xl shadow-2xl"
               />
             </div>

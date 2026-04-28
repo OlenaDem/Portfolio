@@ -21,7 +21,7 @@ export default function DancingApparel() {
             to="/"
             className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 hover:text-white transition cursor-pointer"
           >
-            Front-End Developer
+            Web and Software Developer
           </NavLink>
         </div>
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -69,7 +69,7 @@ export default function DancingApparel() {
             >
               <img
                 src={img}
-                alt="BirdCare screenshot"
+                alt="DancingApparel screenshot"
                 className="w-full h-auto object-cover"
               />
             </div>
@@ -93,7 +93,8 @@ export default function DancingApparel() {
 
               <img
                 src={selectedImg}
-                onClick={(e) => e.stopPropagation()} // prevent closing when clicking image
+                alt="DancingApparel screenshot enlarged"
+                onClick={(e) => e.stopPropagation()}
                 className="max-w-[95vw] max-h-[95vh] rounded-2xl shadow-2xl"
               />
             </div>
