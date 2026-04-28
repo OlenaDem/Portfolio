@@ -1,38 +1,31 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+const infoCards = [
+  { label: "Location", value: "Germany" },
+  { label: "Focus", value: "Full-Stack Development" },
+];
+
+const getTimeSinceYearStart = () => {
+  const startOfYear = new Date(new Date().getFullYear(), 0, 1);
+  const diff = Date.now() - startOfYear.getTime();
+  const totalSeconds = Math.floor(diff / 1000);
+  const totalMinutes = Math.floor(totalSeconds / 60);
+  const totalHours = Math.floor(totalMinutes / 60);
+  return {
+    days: Math.floor(totalHours / 24),
+    hours: totalHours % 24,
+    minutes: totalMinutes % 60,
+    seconds: totalSeconds % 60,
+  };
+};
+
 export default function AboutMe() {
   const navigate = useNavigate();
-
-  const getTimeSinceYearStart = () => {
-    const startOfYear = new Date(new Date().getFullYear(), 0, 1);
-    const now = new Date();
-    const diff = now.getTime() - startOfYear.getTime();
-
-    const totalSeconds = Math.floor(diff / 1000);
-    const totalMinutes = Math.floor(totalSeconds / 60);
-    const totalHours = Math.floor(totalMinutes / 60);
-    const totalDays = Math.floor(totalHours / 24);
-
-    return {
-      years: 0,
-      months: 0,
-      days: totalDays,
-      hours: totalHours % 24,
-      minutes: totalMinutes % 60,
-      seconds: totalSeconds % 60,
-    };
-  };
-
-  const [timeSinceYearStart, setTimeSinceYearStart] = useState(
-    getTimeSinceYearStart(),
-  );
+  const [time, setTime] = useState(getTimeSinceYearStart());
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeSinceYearStart(getTimeSinceYearStart());
-    }, 1000);
-
+    const interval = setInterval(() => setTime(getTimeSinceYearStart()), 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -79,14 +72,23 @@ export default function AboutMe() {
         </p>
       </div>
 
-      <div className="mb-10">
-        <div className="rounded-xl bg-white/10 border border-white/20 p-4 backdrop-blur-md text-center">
-          <h3 className="text-sm text-white/60 mb-2">Experience</h3>
-          <p className="text-lg font-semibold">
-            {timeSinceYearStart.days}d {timeSinceYearStart.hours}h{" "}
-            {timeSinceYearStart.minutes}m {timeSinceYearStart.seconds}s
-          </p>
-        </div>
+      <div className="mb-6 flex flex-wrap justify-center gap-4">
+        {infoCards.map((card) => (
+          <div
+            key={card.label}
+            className="rounded-xl bg-white/10 border border-white/20 px-6 py-4 backdrop-blur-md text-center min-w-35"
+          >
+            <p className="text-xs text-white/40 uppercase tracking-widest mb-1">{card.label}</p>
+            <p className="text-sm font-semibold text-white">{card.value}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mb-10 rounded-xl bg-white/10 border border-white/20 px-8 py-4 backdrop-blur-md text-center">
+        <p className="text-xs text-white/40 uppercase tracking-widest mb-2">Coding this year</p>
+        <p className="text-lg font-semibold tabular-nums">
+          {time.days}d {time.hours}h {time.minutes}m {time.seconds}s
+        </p>
       </div>
 
       <button

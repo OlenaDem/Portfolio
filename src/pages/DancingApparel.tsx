@@ -1,16 +1,25 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
+const techStack = ["React", "TypeScript", "Tailwind CSS", "Vite"];
+
+const features = [
+  "Product catalog for dancewear",
+  "Responsive design for all screen sizes",
+  "Modern UI with smooth transitions",
+  "Clean and intuitive user experience",
+];
+
+const screenshots = [
+  "/screenshots/DancingApparel_1.png",
+  "/screenshots/DancingApparel_2.png",
+  "/screenshots/DancingApparel_3.png",
+  "/screenshots/DancingApparel_4.png",
+  "/screenshots/DancingApparel_5.png",
+];
+
 export default function DancingApparel() {
   const navigate = useNavigate();
-
-  const screenshots = [
-    "/screenshots/DancingApparel_1.png",
-    "/screenshots/DancingApparel_2.png",
-    "/screenshots/DancingApparel_3.png",
-    "/screenshots/DancingApparel_5.png",
-  ];
-
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
 
   return (
@@ -19,78 +28,79 @@ export default function DancingApparel() {
         <div className="w-full text-left mb-4">
           <NavLink
             to="/"
-            className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 hover:text-white transition cursor-pointer"
+            className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 hover:text-white transition"
           >
             Web and Software Developer
           </NavLink>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
+
+        <h1 className="text-4xl md:text-5xl font-bold mb-3">
           Dancing<span className="text-cyan-400">Apparel</span>
         </h1>
+        <p className="text-white/50 text-sm tracking-widest uppercase mb-10">
+          Frontend Web Application
+        </p>
 
-        <div className="mt-6 flex flex-col items-center gap-4 ">
-          <span className="text-7xl md:text-9xl animate-pulse">🏗️</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mb-12">
+          <div className="rounded-2xl bg-white/5 border border-cyan-400/20 p-6 text-left shadow-[0_0_30px_rgba(34,211,238,0.1)] hover:shadow-[0_0_45px_rgba(34,211,238,0.2)] transition duration-300">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="w-1 h-5 rounded-full bg-cyan-400" />
+              <h2 className="text-xs uppercase tracking-widest font-semibold text-cyan-400">Features</h2>
+            </div>
+            <ul className="space-y-2">
+              {features.map((f) => (
+                <li key={f} className="flex items-start gap-2 text-sm text-white/70">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          <p className="max-w-3xl text-white/70 text-lg">
-            This project is currently under construction.
-            <br />
-            More details will be added soon.
-          </p>
-        </div>
-
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 w-full">
-          <div className="rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-[0_0_20px_rgba(99,102,241,0.5)]">
-            <h3 className="text-xl font-semibold mb-2">🛠 Tech Stack</h3>
-            <div className="flex flex-wrap justify-center gap-2">
-              {["React", "TypeScript", "Tailwind", "API", "Vite"].map(
-                (tech, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1 text-xs rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/30"
-                  >
-                    {tech}
-                  </span>
-                ),
-              )}
+          <div className="rounded-2xl bg-white/5 border border-purple-400/20 p-6 text-left shadow-[0_0_30px_rgba(168,85,247,0.1)] hover:shadow-[0_0_45px_rgba(168,85,247,0.2)] transition duration-300">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="w-1 h-5 rounded-full bg-purple-400" />
+              <h2 className="text-xs uppercase tracking-widest font-semibold text-purple-400">Tech Stack</h2>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1 text-sm rounded-full bg-purple-500/15 text-purple-300 border border-purple-400/30"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
           </div>
-        </div> */}
+        </div>
 
-        <h2 className="text-3xl font-semibold mt-20 mb-10">
-          Project <span className="text-indigo-400">Screenshots</span>
-        </h2>
+        <p className="text-xs uppercase tracking-[0.25em] text-white/30 mb-6 self-start">Screenshots</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
           {screenshots.map((img, i) => (
             <div
               key={i}
-              className="w-full rounded-2xl overflow-hidden border border-white/20 bg-white/5 shadow-[0_0_30px_rgba(99,102,241,0.4)] cursor-pointer hover:scale-[1.02] transition"
+              className="w-full rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-[0_0_30px_rgba(99,102,241,0.3)] cursor-pointer hover:scale-[1.02] transition"
               onClick={() => setSelectedImg(img)}
             >
-              <img
-                src={img}
-                alt="DancingApparel screenshot"
-                className="w-full h-auto object-cover"
-              />
+              <img src={img} alt="DancingApparel screenshot" className="w-full h-auto object-cover" />
             </div>
           ))}
         </div>
 
-        {/* Image Modal */}
         {selectedImg && (
           <div
             className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
             onClick={() => setSelectedImg(null)}
           >
             <div className="relative">
-              {/* Close button */}
               <button
                 onClick={() => setSelectedImg(null)}
                 className="absolute top-2 right-2 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 transition z-50"
               >
                 ✕
               </button>
-
               <img
                 src={selectedImg}
                 alt="DancingApparel screenshot enlarged"
@@ -101,13 +111,9 @@ export default function DancingApparel() {
           </div>
         )}
 
-        {/* Back Button */}
         <button
           onClick={() => navigate(-1)}
-          className="rounded-full bg-linear-to-r from-indigo-500 to-cyan-400 
-                     px-6 py-2 font-semibold 
-                     shadow-[0_0_20px_rgba(56,189,248,0.8)] 
-                     hover:scale-105 transition mt-20"
+          className="rounded-full bg-linear-to-r from-indigo-500 to-cyan-400 px-6 py-2 font-semibold shadow-[0_0_20px_rgba(56,189,248,0.8)] hover:scale-105 transition mt-14"
         >
           ← Back
         </button>

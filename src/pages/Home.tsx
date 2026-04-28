@@ -73,6 +73,7 @@ export default function Home() {
           sm:h-142.5
           sm:opacity-100
           drop-shadow-[0_0_50px_rgba(99,102,241,0.8)]
+          animate-float
         "
       />
 
